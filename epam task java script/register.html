@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epam Task</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/25df96b083.js" crossorigin="anonymous"></script>
+    <script>
+	function validate() {
+		var name, country, number, dob, mail, pass, con_pass, digits=0, atposition, dotposition;
+		number = document.getElementById("number").value;
+		mail = document.getElementById("mail").value;
+		pass = document.getElementById("password").value;
+		con_pass = document.getElementById("confirm_password").value;
+		name = document.getElementById("name").value;
+		country = document.getElementById("country").value;
+		dob = document.getElementById("dob").value;
+		atposition = mail.indexOf("@");
+		dotposition = mail.indexOf(".");
+	
+		if(number=="" || mail=="" || pass=="" || con_pass=="" || dob == "" || name == "" || country == "") {
+			alert("Fields cannot be left empty!");
+		}
+		else {
+			if(number.length!=10) {
+				alert("Contact Number should be 10 digits");
+			}
+			else if(atposition<1 || dotposition<atposition+2 || dotposition+2>=mail.length) {
+				alert("Invalid email address");
+			}
+			else if(pass != con_pass) {
+				alert("Passwords don't match");
+			}
+			else {
+				alert("Validation complete");
+				window.location = "register.html";
+			}
+			
+		}
+	}
+    </script>
+</head>
+<body>
+<div class="container-fluid py-3 ">
+    <div class="center container">
+        <div class="row">
+            <div class="col-lg-3 col-sm-1"></div>
+            <div class="col-lg-6 col-sm-10 p-5">
+                <div class="container-fluid ">
+                    <div class="row signincolor text-light p-3">
+                        
+                        <div class="col-sm-4 text-left"><div class="logo"><img src="logo.png" alt=""></div></div>
+                        <div class="col-sm-4 text-center"><b>Register</b></div>
+                        <div class="col-sm-4 text-right">
+                            <span class="material-icons"><a href="#" class="text-light">close</a></span>
+                        </div>
+                    </div>
+                   <div class="bg-light row px-4 pt-3 pb-2">
+                        <div class="input-group">
+                            <input type="text" id="name" class="form-control" placeholder="full name" required>
+                            <div class="input-group-append">
+                                <button class="btn"><span class="material-icons text-secondary">contacts</span></button>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="bg-light row px-4 pt-3 pb-2">
+                        <div class="input-group">
+                            <input type="text" id="country" class="form-control" placeholder="country" required>
+                            <div class="input-group-append">
+                                <button class="btn"><span class="material-icons text-secondary">location_on</span></button>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="bg-light row px-4 pt-3 pb-2">
+                        <div class="input-group">
+                            <input type="text" id="number" class="form-control" placeholder="contact number" required>
+                            <div class="input-group-append">
+                                <button class="btn"><span class="material-icons text-secondary">phone</span></button>
+                            </div>
+                        </div>
+                    </div>
+                  <div class="bg-light row px-4 pt-3 pb-2">
+                        <div class="input-group">
+                            <input type="date" id="dob" class="form-control" placeholder="date of birth" required>
+                            <div class="input-group-append">
+                                <button class="btn"><span class="material-icons text-secondary">date_range</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-light row px-4 pt-3 pb-2">
+                        <div class="input-group">
+                            <input type="email" id="mail" class="form-control" placeholder="mail@example.com" required>
+                            <div class="input-group-append">
+                                <button class="btn"><span class="material-icons text-secondary">mail</span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-light row px-4 pt-2 pb-3">
+                        <div class="input-group">
+                            <input type="password" id="password" class="form-control" placeholder="password" required>
+                            <div class="input-group-append">
+                                <button class="btn"><span class="material-icons text-secondary">lock_open</span></button>
+                            </div>
+                        </div>
+                    </div>
+					<div class="bg-light row px-4 pt-3 pb-2">
+                        <div class="input-group">
+                            <input type="password" id="confirm_password" class="form-control" placeholder="confirm password" required>
+                            <div class="input-group-append">
+                                <button class="btn"><span class="material-icons text-secondary">lock</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-light row p-2">
+                        <div class="col-sm-12 pt-2">
+                            <button type="button" id="sign_up" class="btn signincolor btn-block" onclick="validate()"><b>SIGN UP</b></button>
+                        </div>
+                  </div>
+                    <div class="row p-2 bg-light text-light">one</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-1 "></div>
+        </div>
+    </div>
+</div>
+</body>
+</html
